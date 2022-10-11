@@ -2,6 +2,8 @@
 ![GitHub All Releases](https://img.shields.io/github/downloads/elias-sundqvist/obsidian-annotator/total?style=for-the-badge)
 # Obsidian Annotator
 
+test by haoxuan
+
 This is a plugin for Obsidian (https://obsidian.md). It allows you to open and annotate PDF and EPUB files. 
 
 The plugin is based on https://web.hypothes.is/, but modified to store the annotations in a local markdown file instead of on the internet. 
