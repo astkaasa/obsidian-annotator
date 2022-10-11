@@ -19,7 +19,7 @@ export default (vault: Vault, plugin: AnnotatorPlugin) => {
     const EpubAnnotation = ({ ...props }: EpubAnnotationProps) => {
         return (
             <GenericAnnotationEpub
-                baseSrc="https://cdn.hypothes.is/demos/epub/readium.js/index.html"
+                baseSrc="https://cdn.hypothes.is/demos/epub/readium-js/index.html"
                 {...props}
                 onload={async iframe => {
                     await props.onload?.(iframe);
