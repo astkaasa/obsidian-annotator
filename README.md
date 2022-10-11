@@ -69,6 +69,55 @@ You can make a [pull request](https://github.com/elias-sundqvist/obsidian-annota
 
 ## Changelog
 
+### 0.2.6 (2022-08-19)
+* Fix bug #208 introduced in 0.2.5 It was impossible to open an internal link because of the plugin
+
+* Internal changes
+  * Use dataview package to communicate with dataview plugin
+
+### 0.2.5 (2022-08-14)
+* Move buttons 'Annotate', 'Toggle Dark Mode', 'Open as Markdown' to top of options menu
+* Video annotation
+  * fix [Video not found error](https://github.com/elias-sundqvist/obsidian-annotator/issues/198)
+  * Temporary disable video annotation on mobile devices
+
+* Internal changes
+  * CodeMirror updated to v6
+  * obsidian-api updated to 0.15.9
+  * betterer was installed with strict typing settings to make plugin more stable and reliable in a future
+
+### 0.2.4 (2022-07-23)
+* Fix [plugin fails to start on iPad](https://github.com/elias-sundqvist/obsidian-annotator/issues/176)
+
+### 0.2.2 (2022-05-14) *Minor improvement*
+* hypothes.is updated up to v1.1055.0
+
+### 0.2.1 (2022-03-06) **[BRAT](https://github.com/TfTHacker/obsidian42-brat) release** *Basic web and video annotation* 
+* `annotation-target-type` can now take on the values `web` and `video`. 
+  * With `web` the annotation target can (in theory) be any website. Some work better than others. Link navigation does not work. 
+  * With `video`, only youtube links are supported. In order to use this feature, a link to a zip file with the annotator.tv resources must be provided in the plugin settings. It cannot be bundled with the plugin since that would most likely violate copyright. 
+    * You can ask someone for a link, or generate it yourself by making an account at annotate.tv, signing in, going to https://annotate.tv/videos/620d5a42b9ab630009bf3e31#, and downloading the website using the [Save All Resources](https://chrome.google.com/webstore/detail/save-all-resources/abpdnfjocnmdomablahdcfnoggeeiedb?hl=en) chrome extension, uploading it to google drive, and [generating a direct link](https://sites.google.com/site/gdocs2direct/). 
+  * Other improvements:
+    * Some behind-the-scenes changes have been made so that the hypothes.is version can be more easily upgraded in the future. 
+
+### 0.2.0 (2022-01-26) **[BRAT](https://github.com/TfTHacker/obsidian42-brat) release** *Improved markdown rendering, epub reader* 
+* Markdown in the hypothesis sidebar should now fully support the regular obsidian syntax. (including links, embeds, custom codeblocks etc.)
+* Several Epub improvements, Thanks to @aladmit for these!
+  * New option added for font size scaling (See PR #127)
+  * New "epub reader mode" setting added. Infinite scrolling is now supported! (See PR #114)
+  * Reduced page padding so that maximum available space is used. (See PR #126)
+  
+### 0.1.9 (2022-01-17) *Minor fix* 
+* Removed sentry logging, again, (See issue #97)
+
+### 0.1.8 (2022-01-16) *Minor fixes, added default annotation mode setting* 
+* Fixed issue with pane loading on startup
+* Fixed some issues with epub highlighting
+* Added setting to choose default annotation mode, Thanks to @aladmit for the PR! (See PR #113)
+ 
+### 0.1.7 (2022-01-14) **[BRAT](https://github.com/TfTHacker/obsidian42-brat) release** *chinese file name support* 
+* Fixed issue with chinese file names, as discussed in issue #53
+ 
 ### 0.1.6 (2022-01-12) **[BRAT](https://github.com/TfTHacker/obsidian42-brat) release** *Live Preview Drag and Drop fix + chinese character support* 
 * Drag and drop should now work in live preview (See issue #103)
 * Upgraded pdf.js to a newer version.

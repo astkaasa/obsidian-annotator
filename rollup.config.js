@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
+import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy'
 import fs from 'fs';
@@ -7,7 +8,7 @@ import folderZipString from './rollup-folder-zip-string';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import analyze from 'rollup-plugin-analyzer';
 import { terser } from "rollup-plugin-terser";
-import replace from "rollup-plugin-replace";
+import replace from "@rollup/plugin-replace";
 
 const banner = 
 `/*
@@ -58,9 +59,11 @@ export default {
   "@lezer/lr"],
   plugins: [
     typescript(),
+    json(),
     nodeResolve({browser: true}),
     replace({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      preventAssignment: true
     }),
     commonjs(),
     nodePolyfills(),

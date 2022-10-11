@@ -16,6 +16,20 @@ export type Group = {
     type: 'private' | 'restricted';
 };
 
+export type VideoAnnotation = {
+    readwiseId: string;
+    content: string;
+    title: string;
+    tags: string[];
+    _id: string;
+    video: string;
+    start: number;
+    user: 'obsidianuser';
+    updatedAt: string;
+    createdAt: string;
+    __v: 0;
+};
+
 export type Annotation = {
     id: string;
     document: {
@@ -100,6 +114,7 @@ export type TextQuoteSelector = {
 
 export type GenericAnnotationProps = {
     annotationFile: string;
+    containerEl: HTMLElement;
     onload: (iframe: HTMLIFrameElement) => Promise<void>;
     onDarkReadersUpdated: (darkReaderReferences: Set<WeakRef<DarkReaderType>>) => Promise<void>;
 };
@@ -113,7 +128,19 @@ export type EpubAnnotationProps = GenericAnnotationProps & {
     
 };
 
-export type SpecificAnnotationProps = PdfAnnotationProps | EpubAnnotationProps;
+export type VideoAnnotationProps = GenericAnnotationProps & {
+    video: string;
+};
+
+export type WebAnnotationProps = GenericAnnotationProps & {
+    url: string;
+};
+
+export type SpecificAnnotationProps =
+    | PdfAnnotationProps
+    | EpubAnnotationProps
+    | VideoAnnotationProps
+    | WebAnnotationProps;
 
 export type LocalIFrameProps = {
     onIframePatch: (iframe: HTMLIFrameElement) => Promise<void>;

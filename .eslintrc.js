@@ -1,6 +1,7 @@
 module.exports = {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     parserOptions: {
+        project: './tsconfig.json',
         ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
         sourceType: 'module', // Allows for the use of imports
         ecmaFeatures: {
@@ -16,7 +17,12 @@ module.exports = {
 
     ignorePatterns: ["resources/**/*.js"],
 
+    env: {
+      "browser": true
+    },
+
     extends: [
+        'plugin:compat/recommended', // To be sure plugin works on mobile devices
         'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
         'prettier', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
@@ -27,6 +33,7 @@ module.exports = {
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-this-alias": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
         "no-console": ["error", { allow: ["warn", "error"] }],
     },
 };
